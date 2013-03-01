@@ -60,7 +60,7 @@ function os2web_mobile_feature_default_page_manager_handlers() {
     $pane->pid = 'new-1';
     $pane->panel = 'top';
     $pane->type = 'block';
-    $pane->subtype = 'menu_block-19';
+    $pane->subtype = 'menu_block-OS2Web_mobile-19';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -81,7 +81,7 @@ function os2web_mobile_feature_default_page_manager_handlers() {
     $pane->pid = 'new-2';
     $pane->panel = 'top';
     $pane->type = 'block';
-    $pane->subtype = 'menu_block-18';
+    $pane->subtype = 'menu_block-OS2Web_mobile-18';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -318,7 +318,7 @@ function os2web_mobile_feature_default_page_manager_pages() {
     $pane->pid = 'new-5';
     $pane->panel = 'center';
     $pane->type = 'block';
-    $pane->subtype = 'menu_block-15';
+    $pane->subtype = 'menu_block-OS2Web_mobile-15';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -339,7 +339,7 @@ function os2web_mobile_feature_default_page_manager_pages() {
     $pane->pid = 'new-6';
     $pane->panel = 'center';
     $pane->type = 'block';
-    $pane->subtype = 'menu_block-16';
+    $pane->subtype = 'menu_block-OS2Web_mobile-16';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
@@ -360,7 +360,7 @@ function os2web_mobile_feature_default_page_manager_pages() {
     $pane->pid = 'new-7';
     $pane->panel = 'center';
     $pane->type = 'block';
-    $pane->subtype = 'menu_block-17';
+    $pane->subtype = 'menu_block-OS2Web_mobile-17';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(

@@ -8,7 +8,19 @@
  * @author Thomas Thune Hansen <tth@bellcom.dk>
  **/
 
+// load features
 require_once('os2web_mobile_feature/os2web_mobile_feature.features.inc');
+
+// load menu_block blocks
+module_load_include('inc', 'os2web_mobile', 'os2web_mobile.menu_blocks');
+
+/**
+ * implements hook_init()
+ */
+function os2web_mobile_init() {
+  // a litte radical, but we want to control the sites frontpage
+  $frontpage = variable_set('site_frontpage', 'frontpage');
+}
 
 /**
  * implements hook_menu()
@@ -75,8 +87,6 @@ function _os2web_mobile_is_mobile(){
  * page callback
  */
 function _os2web_mobile_frontpage(){
-  // a litte radical, but we want to control the sites frontpage
-  $frontpage = variable_set('site_frontpage', 'frontpage');
 
   if(_os2web_mobile_is_mobile()){
     drupal_goto('mobile');

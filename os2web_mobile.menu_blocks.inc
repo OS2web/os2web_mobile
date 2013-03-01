@@ -48,7 +48,7 @@ function os2web_mobile_menu_block_blocks() {
       'title_link'  => 0,
       'admin_title' => 'Mobile menu - level 3-7',
       'level'       => 3,
-      'follow'      => child,
+      'follow'      => 'child',
       'depth'       => 1,
       'expanded'    => 0,
       'sort'        => 1,
