@@ -8,27 +8,82 @@
  * @author Thomas Thune Hansen <tth@bellcom.dk>
  **/
 
-function os2web_mobile_extras_menu() {
+/**
+ * implements hook_menu()
+ */
+function os2web_mobile_menu() {
   $items = array();
-
+  
+  // frontpage hijack
   $items['frontpage'] = array(
-    'page callback' => '_os2web_mobile_extras_frontpage',
+    'page callback' => '_os2web_mobile_frontpage',
     'access arguments' => array('access content'),
     'type' => MENU_CALLBACK,
   );
+  
+  // Admin menu
+  $items['admin/config/os2web_mobile'] = array(
+    'title' => 'OS2Web mobile settings',
+    'description' => 'General settings ',
+    'position' => 'right',
+    'weight' => -10,
+    'page callback' => 'system_admin_menu_block_page',
+    'file' => 'system.admin.inc',
+    'file path' => drupal_get_path('module', 'system'),
+    'access arguments' => array('administer site configuration'),
+  );
 
+  $items['admin/config/os2web_mobile/settings'] = array(
+    'title' => 'OS2Web mobile settings',
+    'description' => 'Change settings for OS2web mobile',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('os2web_mobile_settings_form'),
+    'access arguments' => array('administer site configuration'),
+    'file' => 'os2web_mobile.admin.inc',
+  );
+  
   return $items;
 }
+/**
+ * implements hook_custom_theme()
+ */
+function os2web_mobile_custom_theme() {
+  // check if the page requested is mobile, if it is
+  // we serve the mobile theme
+  if(_os2web_mobile_is_mobile()) {
+    return 'os2web_mobile';
+  }
+}
 
-function _os2web_mobile_extras_frontpage(){
+/**
+ * function to check if the page is requested as mobile
+ */
+function _os2web_mobile_is_mobile(){
+  if($_SERVER['HTTP_HOST'] === variable_get('os2web_mobile_domain', null))
+  {
+    return true;
+  }
+  else
+  {
+    return false;
+  }
+}
 
+/**
+ * page callback
+ */
+function _os2web_mobile_frontpage(){
+  // a litte radical, but we want to control the sites frontpage
   $frontpage = variable_set('site_frontpage', 'frontpage');
 
-  if($_SERVER['HTTP_HOST'] === 'm.syddjurs.tth'){
+  if(_os2web_mobile_is_mobile()){
     drupal_goto('mobile');
+    error_log(__FILE__.':'.__LINE__.'test'); // tth@bellcom.dk debugging
   }
   else 
   {
-    drupal_goto('home');
+    drupal_goto(variable_get('os2web_mobile_desktop_frontpage', 'home'));
   }
 }
+
+

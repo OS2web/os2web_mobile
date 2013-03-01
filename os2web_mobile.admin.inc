@@ -2,30 +2,37 @@
 /**
  *  @file os2web_mobile_extras.admin.inc
  */
+function os2web_mobile_settings_form() {
+  $form = array();
 
-/**
- * Implements hook_menu().
- */
-function os2web_mobile_extras_menu() {
-  $items = array();
-  $items['admin/config/os2web_mobile'] = array(
-    'title' => 'O2web mobile settings',
-    'description' => 'General settings ',
-    'position' => 'right',
-    'weight' => -10,
-    'page callback' => 'system_admin_menu_block_page',
-    'file' => 'system.admin.inc',
-    'file path' => drupal_get_path('module', 'system'),
-    'access arguments' => array('administer site configuration'),
+  $form['os2web_mobile_item'] = array(
+    '#type' => 'item',
+    '#markup' => t('Configure how the site reacts to mobile use'),
   );
 
-  $items['admin/config/os2web_mobile/settings'] = array(
-    'title' => 'OS2web mobile settings',
-    'description' => 'Change settings for OS2web mobile',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('os2web_borger_dk_settings_form'),
-    'access arguments' => array('administer site configuration'),
-    'file' => 'os2web_mobile_extras.admin.inc',
+  // domain trigger
+  $form['os2web_mobile_domain'] = array(
+    '#title' => t('Mobile domain'),
+    '#default_value' => variable_get('os2web_mobile_domain', ''),
+    '#description' => t('Which domain should trigger mobile view (ex. m.domain.tld)'),
+    '#type' => 'textfield',
   );
-  return $items;
+
+  // desktop frontpage 
+  $form['os2web_mobile_desktop_frontpage'] = array(
+    '#title' => t('Desktop frontpage'),
+    '#default_value' => variable_get('os2web_mobile_desktop_frontpage', ''),
+    '#description' => t('path to desktop frontpage (normal view)'),
+    '#type' => 'textfield',
+  );
+
+  // mobile frontpage 
+  $form['os2web_mobile_mobile_frontpage'] = array(
+    '#title' => t('Mobile frontpage'),
+    '#default_value' => variable_get('os2web_mobile_mobile_frontpage', 'mobile'),
+    '#description' => t('path to mobile frontpage (default: mobile)'),
+    '#type' => 'textfield',
+  );
+
+  return system_settings_form($form);
 }
