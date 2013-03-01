@@ -7,7 +7,7 @@ function os2web_mobile_settings_form() {
 
   $form['os2web_mobile_item'] = array(
     '#type' => 'item',
-    '#markup' => t('Configure how the site reacts to mobile use'),
+    '#description' => t('Configure how the site reacts to mobile use.'),
   );
 
   // domain trigger
