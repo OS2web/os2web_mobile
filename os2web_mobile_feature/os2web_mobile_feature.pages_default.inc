@@ -33,7 +33,7 @@ function os2web_mobile_feature_default_page_manager_handlers() {
         0 => array(
           'name' => 'theme',
           'settings' => array(
-            'theme' => 'os2web_mobile',
+            'theme' => 'os2web_mobile_theme',
           ),
           'not' => FALSE,
         ),
@@ -179,7 +179,7 @@ function os2web_mobile_feature_default_page_manager_pages() {
         0 => array(
           'name' => 'theme',
           'settings' => array(
-            'theme' => 'os2web_mobile',
+            'theme' => 'os2web_mobile_theme',
           ),
           'not' => FALSE,
         ),

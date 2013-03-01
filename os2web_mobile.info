@@ -3,7 +3,7 @@ description = Adds custom functionality for mobile access
 core = 7.x
 version = 7.x-1.0
 project = os2web_mobile
-dependencies[] = menu_blocks
+dependencies[] = menu_block
 dependencies[] = features
 
 files[] = os2web_mobile.admin.inc

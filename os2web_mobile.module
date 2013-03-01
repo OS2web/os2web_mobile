@@ -8,6 +8,8 @@
  * @author Thomas Thune Hansen <tth@bellcom.dk>
  **/
 
+require_once('os2web_mobile_feature/os2web_mobile_feature.features.inc');
+
 /**
  * implements hook_menu()
  */
@@ -51,7 +53,7 @@ function os2web_mobile_custom_theme() {
   // check if the page requested is mobile, if it is
   // we serve the mobile theme
   if(_os2web_mobile_is_mobile()) {
-    return 'os2web_mobile';
+    return 'os2web_mobile_theme';
   }
 }
 
