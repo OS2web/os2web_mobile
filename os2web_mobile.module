@@ -1,0 +1,34 @@
+<?php
+/**
+ * @file
+ *  os2web_mobile_extras.module
+ *
+ *  adds custom functionality for mobile access to os2web
+ *
+ * @author Thomas Thune Hansen <tth@bellcom.dk>
+ **/
+
+function os2web_mobile_extras_menu() {
+  $items = array();
+
+  $items['frontpage'] = array(
+    'page callback' => '_os2web_mobile_extras_frontpage',
+    'access arguments' => array('access content'),
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+function _os2web_mobile_extras_frontpage(){
+
+  $frontpage = variable_set('site_frontpage', 'frontpage');
+
+  if($_SERVER['HTTP_HOST'] === 'm.syddjurs.tth'){
+    drupal_goto('mobile');
+  }
+  else 
+  {
+    drupal_goto('home');
+  }
+}

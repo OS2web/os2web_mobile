@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OS2Web Mobile feature feature.
+ */
+
+include_once 'os2web_mobile_feature.features.inc';
