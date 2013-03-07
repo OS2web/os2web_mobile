@@ -170,6 +170,7 @@ function os2web_mobile_feature_views_default_views() {
   $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['weight'] = '1';
   $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
   $handler->display->display_options['style_options']['widgets']['top']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
+    'field_rotating_link' => 0,
     'field_rotate_image' => 0,
     'title' => 0,
     'body' => 0,
@@ -180,6 +181,7 @@ function os2web_mobile_feature_views_default_views() {
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['weight'] = '1';
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['type'] = 'views_slideshow_pager_fields';
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_fields'] = array(
+    'field_rotating_link' => 0,
     'field_rotate_image' => 0,
     'title' => 0,
     'body' => 0,
@@ -203,11 +205,22 @@ function os2web_mobile_feature_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indhold: Link */
+  $handler->display->display_options['fields']['field_rotating_link']['id'] = 'field_rotating_link';
+  $handler->display->display_options['fields']['field_rotating_link']['table'] = 'field_data_field_rotating_link';
+  $handler->display->display_options['fields']['field_rotating_link']['field'] = 'field_rotating_link';
+  $handler->display->display_options['fields']['field_rotating_link']['label'] = '';
+  $handler->display->display_options['fields']['field_rotating_link']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_rotating_link']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_rotating_link']['click_sort_column'] = 'url';
+  $handler->display->display_options['fields']['field_rotating_link']['type'] = 'link_plain';
   /* Felt: Indhold: Billede */
   $handler->display->display_options['fields']['field_rotate_image']['id'] = 'field_rotate_image';
   $handler->display->display_options['fields']['field_rotate_image']['table'] = 'field_data_field_rotate_image';
   $handler->display->display_options['fields']['field_rotate_image']['field'] = 'field_rotate_image';
   $handler->display->display_options['fields']['field_rotate_image']['label'] = '';
+  $handler->display->display_options['fields']['field_rotate_image']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['field_rotate_image']['alter']['path'] = '[field_rotating_link]';
   $handler->display->display_options['fields']['field_rotate_image']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_rotate_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_rotate_image']['settings'] = array(
@@ -219,13 +232,21 @@ function os2web_mobile_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['text'] = '<h5>[title]</h5>';
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['path'] = '[field_rotating_link]';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Indhold */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['path'] = '[field_rotating_link]';
   $handler->display->display_options['fields']['body']['alter']['max_length'] = '150';
   $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
@@ -242,6 +263,7 @@ function os2web_mobile_feature_views_default_views() {
     t('Liste'),
     t('Nyheder'),
     t('Fokus'),
+    t('<h5>[title]</h5>'),
   );
   $export['os2web_mobile_news'] = $view;
 

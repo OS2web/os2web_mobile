@@ -5,7 +5,6 @@ php = 5.2.4
 version = 7.x-1.0
 project = os2web_mobile_feature
 dependencies[] = ctools
-dependencies[] = fe_block
 dependencies[] = menu_block
 dependencies[] = page_manager
 dependencies[] = views

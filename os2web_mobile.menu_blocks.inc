@@ -1,6 +1,8 @@
 <?php
 /**
  * @file os2web_mobile.menu_block.inc
+ *
+ * Implements menublocks for os2web mobile
  */
 
 /**
@@ -63,6 +65,28 @@ function os2web_mobile_menu_block_blocks() {
       'depth'       => 1,
       'expanded'    => 0,
       'sort'        => 1,
+    ),
+    'OS2Web_mobile-20' => array(
+      'menu_name'   => 'menu-indholdsmenu',
+      'parent_mlid' => 1217,
+      'title_link'  => 0,
+      'admin_title' => 'Mobile om kommunen menu',
+      'level'       => 1,
+      'follow'      => 0,
+      'depth'       => 1,
+      'expanded'    => 0,
+      'sort'        => 0,
+    ),
+    'OS2Web_mobile-21' => array(
+      'menu_name'   => 'menu-mobil-genveje',
+      'parent_mlid' => 0,
+      'title_link'  => 0,
+      'admin_title' => 'Mobile shortcuts menu',
+      'level'       => 1,
+      'follow'      => 0,
+      'depth'       => 1,
+      'expanded'    => 0,
+      'sort'        => 0,
     ),
   );
 }
