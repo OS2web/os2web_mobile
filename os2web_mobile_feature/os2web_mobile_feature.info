@@ -12,5 +12,4 @@ features[ctools][] = page_manager:pages_default:1
 features[ctools][] = views:views_default:3.0
 features[features_api][] = api:1
 features[page_manager_handlers][] = node_view_panel_context_6
-features[page_manager_pages][] = mobile
 features[views_view][] = os2web_mobile_news
