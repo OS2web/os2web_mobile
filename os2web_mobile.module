@@ -104,4 +104,15 @@ function _os2web_mobile_frontpage(){
   }
 }
 
+/**
+ * implements hook_ctools_plugin_directory
+ * 
+ * @return string
+ */
+function os2web_mobile_ctools_plugin_directory($owner, $plugin_type) {
+  if($owner == 'ctools' && $plugin_type == 'content_types')
+  {
+    return 'plugins/content_types';
+  }
+}
 

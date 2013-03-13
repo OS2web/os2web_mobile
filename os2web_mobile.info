@@ -5,6 +5,7 @@ version = 7.x-1.0
 project = os2web_mobile
 dependencies[] = menu_block
 dependencies[] = features
+dependencies[] = ctools
 
 files[] = os2web_mobile.admin.inc
 files[] = os2web_mobile.menu_blocks.inc
