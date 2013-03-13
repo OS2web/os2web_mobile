@@ -27,7 +27,16 @@ function os2web_mobile_feature_default_page_manager_handlers() {
     'css_id' => '',
     'css' => '',
     'contexts' => array(),
-    'relationships' => array(),
+    'relationships' => array(
+      0 => array(
+        'identifier' => 'Indholdselement from Indholdselement (on Indholdselement: Kontaktblok [field_node_reference_kontaktblok])',
+        'keyword' => 'node_2',
+        'name' => 'entity_from_field:field_node_reference_kontaktblok-node-node',
+        'delta' => 0,
+        'context' => 'argument_entity_id:node_1',
+        'id' => 1,
+      ),
+    ),
     'access' => array(
       'plugins' => array(
         0 => array(
@@ -42,7 +51,7 @@ function os2web_mobile_feature_default_page_manager_handlers() {
     ),
   );
   $display = new panels_display();
-  $display->layout = 'flexible:sektionsforside';
+  $display->layout = 'os2web_mobile';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -50,6 +59,7 @@ function os2web_mobile_feature_default_page_manager_handlers() {
       'center' => NULL,
       'top' => NULL,
       'bund' => NULL,
+      'bottom' => NULL,
     ),
   );
   $display->cache = array();
@@ -58,6 +68,118 @@ function os2web_mobile_feature_default_page_manager_handlers() {
   $display->panels = array();
     $pane = new stdClass();
     $pane->pid = 'new-1';
+    $pane->panel = 'bottom';
+    $pane->type = 'block';
+    $pane->subtype = 'search-form';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-1'] = $pane;
+    $display->panels['bottom'][0] = 'new-1';
+    $pane = new stdClass();
+    $pane->pid = 'new-2';
+    $pane->panel = 'bottom';
+    $pane->type = 'views';
+    $pane->subtype = 'kontaktblok';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(),
+    );
+    $pane->configuration = array(
+      'override_pager_settings' => 0,
+      'use_pager' => 0,
+      'nodes_per_page' => '1',
+      'pager_id' => '0',
+      'offset' => '0',
+      'more_link' => 0,
+      'feed_icons' => 0,
+      'panel_args' => 1,
+      'link_to_view' => 0,
+      'args' => '%node_2:nid',
+      'url' => '',
+      'display' => 'block',
+      'context' => array(
+        0 => 'relationship_entity_from_field:field_node_reference_kontaktblok-node-node_1.field_bpa_id',
+      ),
+      'override_title' => 0,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array(
+      'css_id' => 'contact',
+      'css_class' => '',
+    );
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-2'] = $pane;
+    $display->panels['bottom'][1] = 'new-2';
+    $pane = new stdClass();
+    $pane->pid = 'new-3';
+    $pane->panel = 'bottom';
+    $pane->type = 'block';
+    $pane->subtype = 'block-6';
+    $pane->shown = TRUE;
+    $pane->access = array(
+      'plugins' => array(
+        0 => array(
+          'name' => 'php',
+          'settings' => array(
+            'description' => 'Is contact set',
+            'php' => 'return empty($contexts[\'argument_entity_id:node_1\']->data->field_node_reference_kontaktblok[LANGUAGE_NONE][0][\'nid\']);',
+          ),
+          'not' => FALSE,
+        ),
+      ),
+    );
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => 'Kontakt Borgerservice',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 2;
+    $pane->locks = array();
+    $display->content['new-3'] = $pane;
+    $display->panels['bottom'][2] = 'new-3';
+    $pane = new stdClass();
+    $pane->pid = 'new-4';
+    $pane->panel = 'bottom';
+    $pane->type = 'os2web_mobile_pane';
+    $pane->subtype = 'os2web_mobile_pane';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 3;
+    $pane->locks = array();
+    $display->content['new-4'] = $pane;
+    $display->panels['bottom'][3] = 'new-4';
+    $pane = new stdClass();
+    $pane->pid = 'new-5';
     $pane->panel = 'top';
     $pane->type = 'block';
     $pane->subtype = 'menu_block-OS2Web_mobile-19';
@@ -75,10 +197,10 @@ function os2web_mobile_feature_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-1'] = $pane;
-    $display->panels['top'][0] = 'new-1';
+    $display->content['new-5'] = $pane;
+    $display->panels['top'][0] = 'new-5';
     $pane = new stdClass();
-    $pane->pid = 'new-2';
+    $pane->pid = 'new-6';
     $pane->panel = 'top';
     $pane->type = 'block';
     $pane->subtype = 'menu_block-OS2Web_mobile-18';
@@ -96,10 +218,10 @@ function os2web_mobile_feature_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['top'][1] = 'new-2';
+    $display->content['new-6'] = $pane;
+    $display->panels['top'][1] = 'new-6';
     $pane = new stdClass();
-    $pane->pid = 'new-3';
+    $pane->pid = 'new-7';
     $pane->panel = 'top';
     $pane->type = 'node_content';
     $pane->subtype = 'node_content';
@@ -124,8 +246,8 @@ function os2web_mobile_feature_default_page_manager_handlers() {
     $pane->extras = array();
     $pane->position = 2;
     $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['top'][2] = 'new-3';
+    $display->content['new-7'] = $pane;
+    $display->panels['top'][2] = 'new-7';
   $display->hide_title = PANELS_TITLE_NONE;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
