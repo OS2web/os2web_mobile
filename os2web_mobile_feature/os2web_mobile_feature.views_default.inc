@@ -146,6 +146,17 @@ function os2web_mobile_feature_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indhold: Opdateringsdato */
+  $handler->display->display_options['fields']['changed']['id'] = 'changed';
+  $handler->display->display_options['fields']['changed']['table'] = 'node';
+  $handler->display->display_options['fields']['changed']['field'] = 'changed';
+  $handler->display->display_options['fields']['changed']['label'] = '';
+  $handler->display->display_options['fields']['changed']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['changed']['element_wrapper_type'] = 'span';
+  $handler->display->display_options['fields']['changed']['element_wrapper_class'] = 'news-date';
+  $handler->display->display_options['fields']['changed']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['changed']['date_format'] = 'custom';
+  $handler->display->display_options['fields']['changed']['custom_date_format'] = 'd.m.Y';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -210,6 +221,8 @@ function os2web_mobile_feature_views_default_views() {
     'title' => 0,
     'body' => 0,
   );
+  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_hover'] = 1;
+  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['enable'] = 1;
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['weight'] = '1';
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_slide_counter']['weight'] = '1';
@@ -241,13 +254,15 @@ function os2web_mobile_feature_views_default_views() {
   $handler->display->display_options['fields']['field_rotate_image']['table'] = 'field_data_field_rotate_image';
   $handler->display->display_options['fields']['field_rotate_image']['field'] = 'field_rotate_image';
   $handler->display->display_options['fields']['field_rotate_image']['label'] = '';
-  $handler->display->display_options['fields']['field_rotate_image']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_rotate_image']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_rotate_image']['alter']['text'] = '<img src="[field_rotate_image]" />';
   $handler->display->display_options['fields']['field_rotate_image']['alter']['path'] = '[field_rotating_link]';
   $handler->display->display_options['fields']['field_rotate_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_rotate_image']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_rotate_image']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_rotate_image']['type'] = 'image_url';
   $handler->display->display_options['fields']['field_rotate_image']['settings'] = array(
-    'image_style' => 'news_big',
+    'image_style' => 'mobile_focus_active',
     'image_link' => '',
   );
   /* Felt: Indhold: Titel */
@@ -255,22 +270,24 @@ function os2web_mobile_feature_views_default_views() {
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['title']['alter']['text'] = '<div class="slideshow-container"><a href="[field_rotating_link]"><img src="[field_rotate_image]" /><span class="slideshow-title"><h3>[title]</h3></span></a></div>';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
   /* Felt: Indhold: Indhold */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="slideshow-container"><span class="slideshow-title">[title]</span>[body]</div>';
   $handler->display->display_options['fields']['body']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['body']['alter']['path'] = '[field_rotating_link]';
   $handler->display->display_options['fields']['body']['alter']['max_length'] = '150';
-  $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = FALSE;
   /* Felt: Indhold: Billede */
   $handler->display->display_options['fields']['field_rotate_image_1']['id'] = 'field_rotate_image_1';
   $handler->display->display_options['fields']['field_rotate_image_1']['table'] = 'field_data_field_rotate_image';
@@ -280,10 +297,11 @@ function os2web_mobile_feature_views_default_views() {
   $handler->display->display_options['fields']['field_rotate_image_1']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_rotate_image_1']['alter']['text'] = '<img src="[field_rotate_image_1]"/>';
   $handler->display->display_options['fields']['field_rotate_image_1']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_rotate_image_1']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_rotate_image_1']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_rotate_image_1']['type'] = 'image_url';
   $handler->display->display_options['fields']['field_rotate_image_1']['settings'] = array(
-    'image_style' => 'news-cycle-small',
+    'image_style' => 'mobile_focus_thumb',
     'image_link' => '',
   );
   $translatables['os2web_mobile_news'] = array(
@@ -299,7 +317,8 @@ function os2web_mobile_feature_views_default_views() {
     t('Liste'),
     t('Nyheder'),
     t('Fokus'),
-    t('<div class="slideshow-container"><a href="[field_rotating_link]"><img src="[field_rotate_image]" /><span class="slideshow-title"><h3>[title]</h3></span></a></div>'),
+    t('<img src="[field_rotate_image]" />'),
+    t('<div class="slideshow-container"><span class="slideshow-title">[title]</span>[body]</div>'),
     t('<img src="[field_rotate_image_1]"/>'),
   );
   $export['os2web_mobile_news'] = $view;
