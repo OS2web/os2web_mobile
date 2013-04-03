@@ -222,7 +222,6 @@ function os2web_mobile_feature_views_default_views() {
     'body' => 0,
   );
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_pager']['views_slideshow_pager_fields_hover'] = 1;
-  $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['enable'] = 1;
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['weight'] = '1';
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_controls']['type'] = 'views_slideshow_controls_text';
   $handler->display->display_options['style_options']['widgets']['bottom']['views_slideshow_slide_counter']['weight'] = '1';
@@ -282,8 +281,7 @@ function os2web_mobile_feature_views_default_views() {
   $handler->display->display_options['fields']['body']['field'] = 'body';
   $handler->display->display_options['fields']['body']['label'] = '';
   $handler->display->display_options['fields']['body']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="slideshow-container"><span class="slideshow-title">[title]</span>[body]</div>';
-  $handler->display->display_options['fields']['body']['alter']['make_link'] = TRUE;
+  $handler->display->display_options['fields']['body']['alter']['text'] = '<div class="slideshow-container"><a href="[field_rotating_link]"><span class="slideshow-title">[title]</span>[body]</a></div>';
   $handler->display->display_options['fields']['body']['alter']['path'] = '[field_rotating_link]';
   $handler->display->display_options['fields']['body']['alter']['max_length'] = '150';
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
@@ -318,7 +316,7 @@ function os2web_mobile_feature_views_default_views() {
     t('Nyheder'),
     t('Fokus'),
     t('<img src="[field_rotate_image]" />'),
-    t('<div class="slideshow-container"><span class="slideshow-title">[title]</span>[body]</div>'),
+    t('<div class="slideshow-container"><a href="[field_rotating_link]"><span class="slideshow-title">[title]</span>[body]</a></div>'),
     t('<img src="[field_rotate_image_1]"/>'),
   );
   $export['os2web_mobile_news'] = $view;
