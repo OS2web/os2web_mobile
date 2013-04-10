@@ -1,0 +1,16 @@
+.mobile-detected {
+  color: #fff;
+  background: #5D0036;
+  padding: 13px;
+  text-align: center;
+}
+
+.mobile-detected span {
+  border: 1px solid #666;
+  margin: 0 0 0 10px;
+  box-shadow: 2px 2px 3px rgba(0,0,0,0.1);
+  border-radius: 3px;
+  padding: 3px;
+  background: #8b0053;
+  background-image: linear-gradient(to bottom, #5D0036 0%, #940056 100%);
+}
