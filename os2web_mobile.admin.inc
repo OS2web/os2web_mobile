@@ -18,14 +18,6 @@ function os2web_mobile_settings_form() {
     '#type' => 'textfield',
   );
 
-  // desktop frontpage 
-  $form['os2web_mobile_desktop_frontpage'] = array(
-    '#title' => t('Desktop frontpage'),
-    '#default_value' => variable_get('os2web_mobile_desktop_frontpage', ''),
-    '#description' => t('path to desktop frontpage (normal view)'),
-    '#type' => 'textfield',
-  );
-
   // mobile frontpage 
   $form['os2web_mobile_mobile_frontpage'] = array(
     '#title' => t('Mobile frontpage'),
