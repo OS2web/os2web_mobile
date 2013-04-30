@@ -6,6 +6,7 @@ project = os2web_mobile
 dependencies[] = menu_block
 dependencies[] = features
 dependencies[] = ctools
+dependencies[] = os2web_mobile_feature
 
 files[] = os2web_mobile.admin.inc
 files[] = os2web_mobile.menu_blocks.inc
