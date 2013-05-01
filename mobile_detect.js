@@ -15,17 +15,10 @@ Drupal.behaviors.exampleModule = {
       
         $('.use-mobile').bind('click', function(event){
           document.cookie = 'X-UA-Device-force=pc;path=/;domain=' + domain + ';expires=Thu, 01-Jan-70 00:00:01 GMT;';
-          
-          if(window.location.pathname.indexOf('home') === -1)
-          {
-            window.location.href = 'http://m.'+document.location.host+document.location.pathname;
-            console.log('http://m.'+document.location.host+document.location.pathname);
-          }
-          else
-          {
-            window.location.href = 'http://m.'+document.location.host;
-            console.log('http://m.'+document.location.host);
-          }
+        
+          var new_location = document.location.href.replace('://www.', '://'); 
+          new_location = new_location.replace('://', '://m.');
+          window.location.href = new_location;
         });
         $('.ignore-mobile').bind('click', function(event){
           document.cookie = 'OS2Web-ignore-mobile=1';
