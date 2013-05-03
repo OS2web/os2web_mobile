@@ -1,28 +1,27 @@
 <?php
 /**
+ * @file
+ * os2web_mobile_extras.module
+ *
  * OS2Web mobile module
  * adds custom functionality for mobile access to os2web
  *
- * @category 
- * @file     os2web_mobile_extras.module
+ * @category
  * @author   Thomas Thune Hansen <tth@bellcom.dk>
  */
 
-// load features
+// Load features.
 require_once 'os2web_mobile_feature/os2web_mobile_feature.features.inc';
 
-// load menu_block blocks
+// Load menu_block blocks.
 module_load_include('inc', 'os2web_mobile', 'os2web_mobile.menu_blocks');
 
 /**
- * implements hook_init()
- *
- * @return null
+ * Implements hook_init().
  */
 function os2web_mobile_init() {
-  // detect mobile domain and redirect to correct frontpage
-  if(_os2web_mobile_is_mobile() && drupal_is_front_page()) 
-  {
+  // Detect mobile domain and redirect to correct frontpage.
+  if (_os2web_mobile_is_mobile() && drupal_is_front_page()) {
     drupal_goto(variable_get('os2web_mobile_mobile_frontpage', 'mobile'));
   }
 
@@ -31,22 +30,19 @@ function os2web_mobile_init() {
 }
 
 /**
- * implements hook_menu()
- *
- * @return array
- * - containing menu items
+ * Implements hook_menu().
  */
 function os2web_mobile_menu() {
   $items = array();
-  
-  // frontpage hijack
+
+  // Frontpage hijack.
   $items['frontpage'] = array(
     'page callback' => '_os2web_mobile_frontpage',
     'access arguments' => array('access content'),
     'type' => MENU_CALLBACK,
   );
-  
-  // Admin menu
+
+  // Admin menu.
   $items['admin/config/os2web_mobile'] = array(
     'title' => 'OS2Web mobile settings',
     'description' => 'General settings ',
@@ -66,44 +62,37 @@ function os2web_mobile_menu() {
     'access arguments' => array('administer site configuration'),
     'file' => 'os2web_mobile.admin.inc',
   );
-  
+
   return $items;
 }
 /**
- * implements hook_custom_theme()
- *
- * @return string 
- * - mobile theme name
+ * Implements hook_custom_theme().
  */
 function os2web_mobile_custom_theme() {
-  // check if the page requested is mobile, if it is
-  // we serve the mobile theme
+  // Check if the page requested is mobile, if it is
+  // we serve the mobile theme.
   if (_os2web_mobile_is_mobile()) {
     return 'os2web_mobile_theme';
   }
 }
 
 /**
- * function to check if the page is requested as mobile
+ * Function to check if the page is requested as mobile.
  */
-function _os2web_mobile_is_mobile(){
-  if ($_SERVER['HTTP_HOST'] === variable_get('os2web_mobile_domain', null)) {
-    return true;
+function _os2web_mobile_is_mobile() {
+  if ($_SERVER['HTTP_HOST'] === variable_get('os2web_mobile_domain', NULL)) {
+    return TRUE;
   }
   else {
-    return false;
+    return FALSE;
   }
 }
 
 /**
- * implements hook_ctools_plugin_directory
- * 
- * @return string
+ * Implements hook_ctools_plugin_directory().
  */
 function os2web_mobile_ctools_plugin_directory($owner, $plugin_type) {
-  if($owner == 'ctools' && $plugin_type == 'content_types')
-  {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
     return 'plugins/content_types';
   }
 }
-
