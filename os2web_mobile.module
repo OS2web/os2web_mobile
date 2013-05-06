@@ -25,8 +25,8 @@ function os2web_mobile_init() {
     drupal_goto(variable_get('os2web_mobile_mobile_frontpage', 'mobile'));
   }
 
-  drupal_add_js(drupal_get_path('module', 'os2web_mobile') . '/mobile_detect.js');
-  drupal_add_css(drupal_get_path('module', 'os2web_mobile') . '/mobile_detect.css');
+  drupal_add_js(drupal_get_path('module', 'os2web_mobile') . '/os2web_mobile.js');
+  drupal_add_css(drupal_get_path('module', 'os2web_mobile') . '/os2web_mobile.css');
 }
 
 /**

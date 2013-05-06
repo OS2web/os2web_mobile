@@ -1,6 +1,6 @@
 (function ($) {
 
-Drupal.behaviors.exampleModule = {
+Drupal.behaviors.os2web_mobile = {
   attach: function (context, settings) {
     var host_array = document.location.host.split('.');
     var domain = '.' + host_array[host_array.length -2] + '.' + host_array[host_array.length -1];
