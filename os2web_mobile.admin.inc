@@ -2,6 +2,10 @@
 /**
  *  @file os2web_mobile_extras.admin.inc
  */
+
+/**
+ * Implements hook_settings_form().
+ */
 function os2web_mobile_settings_form() {
   $form = array();
 
@@ -10,7 +14,7 @@ function os2web_mobile_settings_form() {
     '#description' => t('Configure how the site reacts to mobile use.'),
   );
 
-  // domain trigger
+  // Domain trigger.
   $form['os2web_mobile_domain'] = array(
     '#title' => t('Mobile domain'),
     '#default_value' => variable_get('os2web_mobile_domain', ''),
@@ -18,7 +22,7 @@ function os2web_mobile_settings_form() {
     '#type' => 'textfield',
   );
 
-  // mobile frontpage 
+  // Mobile frontpage.
   $form['os2web_mobile_mobile_frontpage'] = array(
     '#title' => t('Mobile frontpage'),
     '#default_value' => variable_get('os2web_mobile_mobile_frontpage', 'mobile'),
